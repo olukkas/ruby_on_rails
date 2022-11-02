@@ -2,8 +2,7 @@ Style/EndOfLine:
   EnforcedStyle: lf
 
 Style/FrozenStringLiteralComment:
-  Enable: false
-
+  Enabled: false
 
 Documentation:
   Enabled: false
