@@ -1,0 +1,9 @@
+Style/EndOfLine:
+  EnforcedStyle: lf
+
+Style/FrozenStringLiteralComment:
+  Enable: false
+
+
+Documentation:
+  Enabled: false
