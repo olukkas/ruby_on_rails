@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
   end
 
   def show; end
+  def edit; end
 
   def new
     @article = Article.new
@@ -26,8 +27,6 @@ class ArticlesController < ApplicationController
       render :new
     end
   end
-
-  def edit; end
 
   def update
     if @article.update(article_params)
