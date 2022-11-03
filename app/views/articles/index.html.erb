@@ -10,7 +10,9 @@
     <h3 class="pb-4 mb-4 fst-italic border-bottom">
       From the Firehose
     </h3>
-    <%= link_to 'Novo article', new_article_path %>
+    <p>
+      <%= link_to 'Novo article', new_article_path, class: 'btn btn-primary' %>
+    </p>
     <%= render @articles %>
     <%= render 'articles/components/pagination' %>
   </div>
