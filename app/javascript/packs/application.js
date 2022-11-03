@@ -12,10 +12,12 @@ import { Tooltip } from 'bootstrap'
 import '../stylessheets/aplications.scss'
 
 document.addEventListener("turbolinks:load", () => {
-    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new Tooltip(tooltipTriggerEl)
-    })
+    const seletor = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const createInstance = trigger => new Tooltip(trigger);
+
+    [].slice
+        .call(seletor)
+        .map(createInstance)
 });
 
 Rails.start()
