@@ -1,18 +1,18 @@
-<h1>Articles</h1>
-
-<%= link_to 'Novo article', new_article_path %>
-
-<ul>
-  <% @articles.each do |article| %>
-      <li>
-       <%= link_to article.title, article %>
-      </li>
-  <% end %>
-</ul>
-
 <%= render 'articles/components/longer-featured' %>
 
 <div class="row mb-2">
   <%= render 'articles/components/medium-featured' %>
   <%= render 'articles/components/medium-featured' %>
+</div>
+
+<div class="row g-5">
+  <div class="col-md-8">
+    <h3 class="pb-4 mb-4 fst-italic border-bottom">
+      From the Firehose
+    </h3>
+    <%= link_to 'Novo article', new_article_path %>
+    <%= render @articles %>
+    <%= render 'articles/components/pagination' %>
+  </div>
+  <%= render 'articles/components/right-side' %>
 </div>
