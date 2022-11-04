@@ -7,5 +7,5 @@ class Article < ApplicationRecord
   paginates_per 2
 
   scope :order_by_date, ->(type = :desc) { order(created_at: type) }
-  scope :without_highlights, ->(ids) { where("id NOT in (#{ids})") if ids.present?}
+  scope :without_highlights, ->(ids) { where("id NOT in (#{ids})") if ids.present? }
 end
