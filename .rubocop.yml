@@ -1,8 +1,12 @@
 Style/EndOfLine:
+  Enabled: false
   EnforcedStyle: lf
 
 Style/FrozenStringLiteralComment:
   Enabled: false
 
 Documentation:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
   Enabled: false

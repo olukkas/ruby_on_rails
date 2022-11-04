@@ -15,9 +15,7 @@ document.addEventListener("turbolinks:load", () => {
     const seletor = document.querySelectorAll('[data-bs-toggle="tooltip"]');
     const createInstance = trigger => new Tooltip(trigger);
 
-    [].slice
-        .call(seletor)
-        .map(createInstance)
+    Array.call(seletor).map(createInstance)
 });
 
 Rails.start()

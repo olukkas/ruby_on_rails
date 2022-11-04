@@ -2,13 +2,12 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
 
   def index
-    @highlights = articles_desc_order.first(3)
+    @highlights = Article.order_by_date.first(3)
     highlights_ids = @highlights.pluck(:id).join(', ')
 
-    @articles = articles_desc_order
-                .where("id NOT in (#{highlights_ids})")
-                .page((params[:page] || 1).to_i)
-                .per(2)
+    @articles = Article.without_highlights(highlights_ids)
+        .order_by_date
+        .page((params[:page] || 1).to_i)
   end
 
   def show; end
@@ -50,9 +49,5 @@ class ArticlesController < ApplicationController
 
   def set_article
     @article = Article.find(params[:id])
-  end
-
-  def articles_desc_order
-    Article.order(created_at: :desc)
   end
 end
