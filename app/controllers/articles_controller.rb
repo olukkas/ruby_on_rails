@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[index show]
 
   def index
     @highlights = Article.order_by_date.first(3)
@@ -14,11 +15,11 @@ class ArticlesController < ApplicationController
   def edit; end
 
   def new
-    @article = Article.new
+    @article = current_user.articles.new
   end
 
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.new article_params
 
     if @article.save
       redirect_to @article, notice: 'Article was successfully created.'
@@ -44,7 +45,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :body, :category_id)
+    params.require(:article).permit(:title, :body, :category_id, :user_id)
   end
 
   def set_article
