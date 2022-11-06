@@ -75,4 +75,8 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  # Letter Opener
+  config.action_mailer.delivey_method = :letter_opener
+  config.action_mailer.peform_deliveries = true
 end
